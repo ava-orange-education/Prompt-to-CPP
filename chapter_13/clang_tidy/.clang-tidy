@@ -1,0 +1,7 @@
+Checks: >
+  cppcoreguidelines-narrowing-conversions
+
+WarningsAsErrors: ''
+HeaderFilterRegex: '.*'
+FormatStyle: none
+
