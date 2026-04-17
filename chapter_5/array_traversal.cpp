@@ -1,0 +1,31 @@
+/**
+ * @file    array_traversal.cpp
+ * @author  Vivek Bhadra
+ *
+ * @brief
+ * Demonstrates traversal of an array using index-based access in C++.
+ *
+ * @license
+ * This file is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published by the
+ * Free Software Foundation; either version 3 of the License, or (at your
+ * option) any later version.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+// array_traversal.cpp
+// This program demonstrates how to traverse an array and print its elements using indexing in C++.
+#include <iostream>
+
+int main()
+{
+    int arr[5] = {10, 20, 30, 40, 50};
+
+    for (int i = 0; i < 5; ++i)
+    {
+        std::cout << "arr[" << i << "] = " << arr[i] << '\n';
+    }
+
+    return 0;
+}
