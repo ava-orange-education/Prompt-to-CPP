@@ -1,7 +1,25 @@
+/*
+ * Copyright (C) 2026
+ * Author: Vivek Bhadra
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
 // unique_lock_flexible.cpp
 // This code demonstrates the flexible locking capabilities of std::unique_lock in C++17.
 // A worker thread conditionally acquires a lock based on a shared flag
 // to update a shared counter variable.
+#include <atomic>
 #include <chrono>
 #include <iostream>
 #include <mutex>
@@ -9,7 +27,7 @@
 
 std::mutex mtx;
 int shared_counter = 0;
-bool enable_update = false;
+std::atomic<bool> enable_update{false};
 
 void worker_thread()
 {
@@ -17,7 +35,8 @@ void worker_thread()
 
     // Simulate some preparation work before acquiring the lock
     std::this_thread::sleep_for(std::chrono::milliseconds(200));
-    if (!enable_update)
+
+    if (!enable_update.load())
     {
         std::cout << "Worker: Update disabled, skipping critical section.\n";
         return;
@@ -38,11 +57,8 @@ int main()
     std::thread t(worker_thread);
 
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
-    {
-        std::lock_guard<std::mutex> guard(mtx);
-        enable_update = true;
-        std::cout << "Main: Update enabled.\n";
-    }
+    enable_update.store(true);
+    std::cout << "Main: Update enabled.\n";
 
     t.join();
     std::cout << "Main: Final shared counter = " << shared_counter << '\n';

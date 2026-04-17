@@ -1,6 +1,6 @@
 # Compiler and flags
 CXX      := g++
-CXXFLAGS := -std=c++17 -Wall -Wextra -O2
+CXXFLAGS := -std=c++17 -Wall -Wextra -O0
 
 # Target executable
 TARGET := sample_program_with_tracing
