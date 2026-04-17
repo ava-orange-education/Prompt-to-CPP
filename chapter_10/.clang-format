@@ -1,0 +1,12 @@
+BasedOnStyle: Microsoft
+IndentWidth: 4
+UseTab: Never
+BreakBeforeBraces: Allman
+AllowShortIfStatementsOnASingleLine: false
+ColumnLimit: 120
+
+# Compatible tweaks for multiline brace-init formatting
+Cpp11BracedListStyle: false
+AlignAfterOpenBracket: Align
+AllowAllConstructorInitializersOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
