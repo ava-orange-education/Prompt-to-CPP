@@ -1,0 +1,32 @@
+/**
+ * @file    function_addition.cpp
+ * @author  Vivek Bhadra
+ *
+ * @brief
+ * Demonstrates defining and calling a simple function to add two integers.
+ *
+ * @license
+ * This file is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published by the
+ * Free Software Foundation; either version 3 of the License, or (at your
+ * option) any later version.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+// function_addition.cpp
+// This program defines a function to add two integers and prints the result.
+#include <iostream>
+
+// This is a function that adds two integers and returns the result
+int add(const int a, const int b)
+{
+    return a + b;
+}
+
+int main()
+{
+    const int result = add(5, 3); // Function is invoked here
+    std::cout << "Sum is: " << result << "\n";
+    return 0;
+}
