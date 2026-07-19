@@ -1,4 +1,4 @@
-# Prompt-to-CPP: Source Code Repository
+# Prompting C++ for Systems Engineering: Source Code Repository
 
 This repository contains all source code examples, projects, and build
 files for the book **Prompt-to-CPP**. Each chapter directory is
